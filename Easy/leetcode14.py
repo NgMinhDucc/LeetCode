@@ -7,7 +7,6 @@ class Solution:
                     return lcp
             lcp += strs[0][i]
         return lcp
-
        
 solve = Solution() 
 for _ in range(2):
