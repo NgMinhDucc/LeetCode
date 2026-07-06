@@ -2,8 +2,6 @@
 
 class Solution:
     def triangularSum(self, nums: list[int]) -> int:
-        if len(nums) == 1:
-            return nums[len(nums) - 1]
         while len(nums) > 1:
             newNums = []
             for i in range(len(nums) - 1):
