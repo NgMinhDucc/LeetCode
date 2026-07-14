@@ -1,15 +1,15 @@
+# https://leetcode.com/problems/time-needed-to-buy-tickets/
+
 class Solution:
     def timeRequiredToBuy(self, tickets: list[int], k: int) -> int:
         sec = 0
         n = len(tickets)
-        while tickets[k] != 0:
-            for i in range(n):
-                if tickets[i] > 0:
-                    tickets[i] -= 1
-                    sec += 1
-                    if tickets[k] == 0:
-                        return sec
-        
+        for i in range(n):
+            if i <= k: # ahead or at position k
+                sec += min(tickets[i], tickets[k])
+            else: # behind position k
+                sec += min(tickets[i], tickets[k] - 1) # after buying 1 ticket, we only have tikets[k] tickets more to buy
+        return sec
         
 solve = Solution()
 for _ in range(int(input())):
